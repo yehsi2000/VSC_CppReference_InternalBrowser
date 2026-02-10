@@ -1,16 +1,9 @@
 import vscode from "vscode";
 
 export function getLink(path: string): string {
-  const alternative = vscode.workspace
-    .getConfiguration("cppref.alternative")
-    .get("enabled");
-  if (alternative) {
-    let url: string = vscode.workspace.getConfiguration("cppref.alternative").get("url")!;
-    return url + path;
-  } else {
-    const lang: string = vscode.workspace.getConfiguration("cppref").get("lang")!;
-    return `https://${lang}.cppreference.com/w/${path}`
-  }
+  const lang: string = vscode.workspace.getConfiguration("cppref").get("lang")!;
+  return `https://${lang}.cppreference.com/w/${path}`
+
 }
 
 export function getSearchEnginePath(word: string) {
@@ -29,8 +22,4 @@ export function getSearchEnginePath(word: string) {
     case "Baidu":
       return `https://www.baidu.com/s?wd=${encodedWord}`;
   }
-}
-
-export function shouldInvert() {
-  return vscode.workspace.getConfiguration("cppref").get("invertColorInDarkTheme", false);
 }

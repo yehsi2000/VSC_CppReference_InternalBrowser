@@ -1,40 +1,14 @@
 import * as vscode from "vscode";
 
-import { getWvUri, setWvContent } from "./webview";
+import { getWvUri } from "./webview";
 import { updateData } from "./data";
 import { UserCancelledError } from "./utils";
 
 export function activate(context: vscode.ExtensionContext) {
-  let wvPanel: vscode.WebviewPanel | undefined = undefined;
   async function main(manually: boolean): Promise<void> {
     try {
-      const uri = await getWvUri(context, manually);
-      if (wvPanel) {
-        wvPanel.reveal(vscode.ViewColumn.Beside);
-      } else {
-        wvPanel = vscode.window.createWebviewPanel(
-          "docs",
-          "C++ Reference",
-          {
-            viewColumn: vscode.ViewColumn.Beside,
-            preserveFocus: false,
-          },
-          {
-            enableScripts: true,
-            enableFindWidget: true,
-            retainContextWhenHidden: true,
-            localResourceRoots: [vscode.Uri.parse("file:///")]
-          }
-        );
-        wvPanel.onDidDispose(
-          () => {
-            wvPanel = undefined;
-          },
-          null,
-          context.subscriptions
-        );
-      }
-      await setWvContent(wvPanel.webview, uri);
+      let uri = await getWvUri(context, manually);
+      vscode.commands.executeCommand('simpleBrowser.show', uri);
     } catch (error) {
       if (error instanceof Error) {
         if (!(error instanceof UserCancelledError))

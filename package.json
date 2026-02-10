@@ -1,13 +1,13 @@
 {
   "name": "cpp-reference",
-  "displayName": "Cpp Reference",
-  "description": "View CppReference.com in VS Code",
-  "version": "0.2.5",
-  "publisher": "Guyutongxue",
+  "displayName": "Cpp Reference - Browser",
+  "description": "View CppReference.com in VS Code simple browser",
+  "version": "0.0.1",
+  "publisher": "yehsi2000",
   "author": {
-    "name": "Guyutongxue",
-    "url": "https://guyutongxue.github.io",
-    "email": "guyutongxue@163.com"
+    "name": "JH_Ahn",
+    "url": "https://github.com/yehsi2000",
+    "email": "yehsi2000@gmail.com"
   },
   "engines": {
     "vscode": "^1.75.0",
@@ -16,7 +16,7 @@
   "icon": "img/logo.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Guyutongxue/VSC_CppReference.git"
+    "url": "https://github.com/yehsi2000/VSC_CppReference_InternalBrowser.git"
   },
   "categories": [
     "Other",
@@ -90,18 +90,6 @@
             "default": "en",
             "description": "Choose the language of online version cppreference.com."
           },
-          "cppref.alternative.enabled": {
-            "type": "boolean",
-            "title": "Enable alternative version",
-            "default": false,
-            "description": "If you prefer an alternative version of cppreference.com, switch this on."
-          },
-          "cppref.alternative.url": {
-            "type": "string",
-            "title": "Alternative URL",
-            "markdownDescription": "Write your alternative cppreference.com base URL here, like `https://guyutongxue.gitee.io/cppref/zh/`.",
-            "default": ""
-          },
           "cppref.searchEngine": {
             "type": "string",
             "title": "Search engine",
@@ -113,11 +101,6 @@
               "Baidu"
             ],
             "default": "Bing"
-          },
-          "cppref.invertColorInDarkTheme": {
-            "type": "boolean",
-            "title": "Invert color in dark theme",
-            "markdownDescription": "When using vscode's Dark Theme or Dark High Contrast Theme, invert the page's color. \n\n**Warning**: This feature is implemented using CSS filter and may result in sharper text edges, making it difficult to read."
           }
         }
       }
